@@ -1,0 +1,62 @@
+# .circleci/config.yml
+
+# Specify the config version
+version: 2.1
+
+#######################################################################
+# Executors (Reusable Environment of where to run the Jobs)
+#######################################################################
+executors:
+    xcode-host:
+        macos:
+            xcode: "12.5.0"
+        # This ensures the correct ruby version is used
+        shell: /bin/bash --login -eo pipefail
+        environment:
+            # Silences warning from Fastlane
+            - LC_ALL: "en_US.UTF-8"
+            - LANG: "en_US.UTF-8"
+            - FL_OUTPUT_DIR: "./fastlane/logs"
+            - SCAN_DEVICE: "unit-test-phone"
+            - SCAN_DEVICE_TYPE: "iPhone 8"
+            - SCAN_DEVICE_RUNTIME: "com.apple.CoreSimulator.SimRuntime.iOS-14-5"
+
+commands:
+    run-xcode-ui-lane:
+        description: "Runs lanes associated with UI tests"
+        steps:
+            - create-and-boot-test-device
+            - checkout
+            - run:
+                name: Install Ruby Bundler Dependencies
+                command: bundle install --path ./vendor/bundle --jobs 4
+            - run: ./ci/runUIfastlane.sh "ui_tests"
+            - store_artifacts:
+                path: ./fastlane/logs
+
+    create-and-boot-test-device:
+        description: "Create test device and boot it."
+        steps:
+            - run:
+                name: Create Simulator
+                type: shell
+                command: xcrun simctl create "$SCAN_DEVICE" "$SCAN_DEVICE_TYPE" "$SCAN_DEVICE_RUNTIME"
+            - run:
+                name: Boot Simulator
+                type: shell
+                command: xcrun instruments -w "$SCAN_DEVICE" || sleep 20
+
+jobs:
+    test-current-location:
+        executor: xcode-host
+        steps:
+            - run-xcode-ui-lane
+
+workflows:
+    version: 2
+    ci:
+        jobs:
+        -   test-current-location:
+                filters:
+                    branches:
+                        ignore: []

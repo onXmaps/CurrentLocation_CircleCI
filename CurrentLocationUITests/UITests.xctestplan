@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "E6EF9BFF-BC09-4EDD-A0F3-95693E10C796",
+      "name" : "Configuration 1",
+      "options" : {
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:CurrentLocation.xcodeproj",
+          "identifier" : "FA893F5626E980C0009DDC2F",
+          "name" : "CurrentLocation"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "locationScenario" : {
+      "identifier" : "..\/..\/CurrentLocationUITests\/onXOfficeWaypoint.gpx"
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CurrentLocation.xcodeproj",
+      "identifier" : "FA893F5626E980C0009DDC2F",
+      "name" : "CurrentLocation"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "CurrentLocationUITests\/testEmpty()"
+      ],
+      "target" : {
+        "containerPath" : "container:CurrentLocation.xcodeproj",
+        "identifier" : "FA893F7726E980C1009DDC2F",
+        "name" : "CurrentLocationUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

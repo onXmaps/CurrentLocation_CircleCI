@@ -53,7 +53,7 @@ jobs:
     test-current-location:
         executor: xcode-host
         steps:
-            - create-and-boot-test-device
+#            - create-and-boot-test-device
             - macos/set-sim-location
             - run:
                 name: Simulator name

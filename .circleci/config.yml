@@ -28,9 +28,6 @@ commands:
     run-xcode-ui-lane:
         description: "Runs lanes associated with UI tests"
         steps:
-            - macosOrb/set-custom-location:
-                latitude: "1337"
-                longitude: "7331"
             - create-and-boot-test-device
             - checkout
             - run:
@@ -57,6 +54,10 @@ jobs:
         executor: xcode-host
         steps:
             - run-xcode-ui-lane
+    macosOrb/set-custom-location:
+        latitude: "1337"
+        longitude: "7331"
+
 
 workflows:
     version: 2

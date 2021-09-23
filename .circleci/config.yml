@@ -21,7 +21,7 @@ executors:
             - LANG: "en_US.UTF-8"
             - FL_OUTPUT_DIR: "./fastlane/logs"
 #            - SCAN_DEVICE: "unit-test-phone"
-            - SCAN_DEVICE_TYPE: "iPhone 12 Pro Max"
+#            - SCAN_DEVICE_TYPE: "iPhone 12 Pro Max"
 #            - SCAN_DEVICE_RUNTIME: "com.apple.CoreSimulator.SimRuntime.iOS-14-5"
 
 commands:

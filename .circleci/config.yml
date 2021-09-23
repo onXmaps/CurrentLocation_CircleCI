@@ -53,16 +53,17 @@ jobs:
     test-current-location:
         executor: xcode-host
         steps:
-            - run-xcode-ui-lane
-    set-custom-location:
-        executor: xcode-host
-        steps:
             - macos/set-sim-location
+            - run-xcode-ui-lane
+#    set-custom-location:
+#        executor: xcode-host
+#        steps:
+
 workflows:
     version: 2
     ci:
         jobs:
-        - set-custom-location
+#        - set-custom-location
         - test-current-location:
             filters:
                 branches:

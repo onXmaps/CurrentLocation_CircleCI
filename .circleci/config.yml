@@ -55,6 +55,10 @@ jobs:
         steps:
             - create-and-boot-test-device
             - macos/set-sim-location
+            - run:
+                name: Simulator name
+                type: shell
+                command: xcrun simctl list | grep Booted
             - run-xcode-ui-lane
 
 workflows:

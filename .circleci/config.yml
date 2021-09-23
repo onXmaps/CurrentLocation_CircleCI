@@ -54,16 +54,15 @@ jobs:
         executor: xcode-host
         steps:
             - run-xcode-ui-lane
-    macosOrb/set-custom-location:
-        latitude: "1337"
-        longitude: "7331"
-
 
 workflows:
     version: 2
     ci:
         jobs:
-        -   test-current-location:
+        - macosOrb/set-custom-location:
+              latitude: "1337"
+              longitude: "7331"
+        - test-current-location:
                 filters:
                     branches:
                         ignore: []

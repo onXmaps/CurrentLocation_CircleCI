@@ -57,10 +57,7 @@ jobs:
     set-custom-location:
         executor: xcode-host
         steps:
-            -macos/set-custom-location:
-                latitude: "1337"
-                longitude: "7331"
-
+            - macos/set-sim-location
 workflows:
     version: 2
     ci:

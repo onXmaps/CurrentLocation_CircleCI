@@ -28,7 +28,7 @@ commands:
     run-xcode-ui-lane:
         description: "Runs lanes associated with UI tests"
         steps:
-            - create-and-boot-test-device
+#            - create-and-boot-test-device
             - checkout
             - run:
                 name: Install Ruby Bundler Dependencies

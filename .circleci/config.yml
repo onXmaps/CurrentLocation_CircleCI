@@ -54,14 +54,18 @@ jobs:
         executor: xcode-host
         steps:
             - run-xcode-ui-lane
+    set-custom-location:
+        executor: xcode-host
+        steps:
+            -macos/set-custom-location:
+                latitude: "1337"
+                longitude: "7331"
 
 workflows:
     version: 2
     ci:
         jobs:
-        - macos/set-custom-location:
-            latitude: "1337"
-            longitude: "7331"
+        - set-custom-location
         - test-current-location:
             filters:
                 branches:

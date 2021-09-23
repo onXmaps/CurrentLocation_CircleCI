@@ -4,7 +4,7 @@
 version: 2.1
 
 orbs:
-  macos: circleci/macos@dev:f234a82
+  macosOrb: circleci/macos@dev:f234a82
 
 #######################################################################
 # Executors (Reusable Environment of where to run the Jobs)
@@ -28,7 +28,7 @@ commands:
     run-xcode-ui-lane:
         description: "Runs lanes associated with UI tests"
         steps:
-            - macos/set-custom-location:
+            - macosOrb/set-custom-location:
                 latitude: "1337"
                 longitude: "7331"
             - create-and-boot-test-device

@@ -36,6 +36,10 @@ commands:
             - run: ./ci/runUIfastlane.sh "ui_tests"
             - store_artifacts:
                 path: ./fastlane/logs
+            - run:
+                name: Simulator name
+                type: shell
+                command: xcrun simctl list | grep Booted
 
     create-and-boot-test-device:
         description: "Create test device and boot it."

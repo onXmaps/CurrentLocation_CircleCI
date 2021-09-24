@@ -20,9 +20,13 @@ class CurrentLocationUITests: XCTestCase {
     private let app: XCUIApplication = BaseScreen.app
 
     func testCurrentLocation() throws {
+        Thread.sleep(forTimeInterval: 2)
         app/*@START_MENU_TOKEN@*/.staticTexts["Request location"]/*[[".buttons[\"Request location\"].staticTexts[\"Request location\"]",".buttons[\"requestLocation\"].staticTexts[\"Request location\"]",".staticTexts[\"Request location\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        Thread.sleep(forTimeInterval: 2)
         _ = app.staticTexts["Test me"].waitForExistence(timeout: 20)
+        Thread.sleep(forTimeInterval: 2)
         app.staticTexts["Test me"].tap()
+        Thread.sleep(forTimeInterval: 2)
         XCTAssertTrue(app.staticTexts["itWorkedLabel"].isEnabled)
         Thread.sleep(forTimeInterval: 2)
         XCTAssertTrue(app.staticTexts["latLongLabel"].label != "")

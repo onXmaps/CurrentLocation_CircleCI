@@ -30,9 +30,9 @@ commands:
         steps:
 #            - create-and-boot-test-device
             - checkout
-            - run:
-                name: Install Ruby Bundler Dependencies
-                command: bundle install --path ./vendor/bundle --jobs 4
+#            - run:
+#                name: Install Ruby Bundler Dependencies
+#                command: bundle install --path ./vendor/bundle --jobs 4
             - run: ./ci/runUIfastlane.sh "ui_tests"
             - store_artifacts:
                 path: ./fastlane/logs

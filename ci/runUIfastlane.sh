@@ -7,4 +7,4 @@
 #cd -
 #exit $test_exit_code
 
-xcodebuild test -scheme "CurrentLocation"  -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 12 Pro Max' -testPlan UITests
+xcodebuild test -scheme "CurrentLocation"  -destination 'platform=iOS Simulator,OS=14.5,name=iPhone 12 Pro Max' -testPlan UITests
